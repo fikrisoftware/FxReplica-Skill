@@ -1,0 +1,34 @@
+{
+  "name": "fxreplica-skill",
+  "description": "Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, test it for bugs, then fix what its users hate. Free, MIT.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jake Schincariol",
+    "url": "https://opusjake.ai"
+  },
+  "homepage": "https://github.com/fikrisoftware/FxReplica-Skill",
+  "repository": "https://github.com/fikrisoftware/FxReplica-Skill",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-skills",
+    "app-clone",
+    "reverse-engineering",
+    "saas",
+    "indie-hacker",
+    "product"
+  ],
+  "skills": [
+    "./fxreplica-recon",
+    "./fxreplica-architect",
+    "./fxreplica-design",
+    "./fxreplica-build",
+    "./fxreplica-backend",
+    "./fxreplica-test",
+    "./fxreplica-diff",
+    "./fxreplica-entrepreneur",
+    "./fxreplica-brand",
+    "./fxreplica-launch",
+    "./fxreplica-deploy"
+  ]
+}
