@@ -46,6 +46,11 @@ anything the app owns.
 
 ## Step 1: scope
 
+If `replica/brief.md` exists, read it first and use it as the answer to the three
+questions below (target and platform, slice, audience). Only ask about what the
+brief leaves as "not set". The brief may carry no real credentials or customer
+data; if it does, stop and ask the user to replace them with placeholders.
+
 Ask three things, or propose answers and get a yes:
 
 1. **Which app, which platform.** Web, iOS, Android, desktop.
