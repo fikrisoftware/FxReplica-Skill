@@ -3,8 +3,8 @@
   "name": "fxreplica-skill",
   "description": "The Replica skill pack for Claude",
   "owner": {
-    "name": "Jake Schincariol",
-    "url": "https://opusjake.ai"
+    "name": "fikrisoftware",
+    "url": "https://github.com/fikrisoftware"
   },
   "plugins": [
     {
