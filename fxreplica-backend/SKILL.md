@@ -80,7 +80,7 @@ launch, which takes weeks. Start it early and write that in `backend.md`.
 - [ ] webhooks verify signatures
 - [ ] uploads: size and type limits, served from a separate domain or bucket
 - [ ] no user data in URLs or logs
-- [ ] dependencies audited (`npm audit`)
+- [ ] dependencies audited (`pnpm audit`)
 - [ ] privacy policy lists every processor (Stripe, Resend, host, analytics)
 
 ## Output

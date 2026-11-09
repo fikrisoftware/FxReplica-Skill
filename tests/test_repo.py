@@ -63,6 +63,17 @@ class Repo(unittest.TestCase):
         for s in SKILLS:
             self.assertIn("`/%s`" % s, readme)
 
+    def test_skills_use_pnpm_not_npm(self):
+        bad = re.compile(r"(^|[\s`(])(npx|npm)\s")
+        for skill in SKILLS:
+            folder = os.path.join(ROOT, skill)
+            for name in os.listdir(folder):
+                if not name.endswith((".md", ".ts")):
+                    continue
+                with open(os.path.join(folder, name), encoding="utf-8") as fh:
+                    for n, line in enumerate(fh, 1):
+                        self.assertIsNone(bad.search(line), "%s/%s:%d uses npm/npx, use pnpm" % (skill, name, n))
+
     def test_no_em_dashes_anywhere(self):
         bad = []
         for dirpath, dirnames, filenames in os.walk(ROOT):

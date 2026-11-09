@@ -36,16 +36,29 @@ because every part is managed, documented and cheap at zero users:
 | jobs | Vercel Cron, Inngest or Trigger.dev | a worker on Fly |
 | files | Supabase Storage or Cloudflare R2 | S3 |
 | hosting | Vercel | Netlify, Fly, Render |
+| package manager | pnpm 10 | none: the pack assumes pnpm |
+
+Use pnpm for every JavaScript command (`pnpm add`, `pnpm exec`, `pnpm dlx`).
+In the clone's `package.json`, pin it with
+`"packageManager": "pnpm@10.x.y"` (the exact version from `pnpm --version`),
+commit `pnpm-lock.yaml`, and add a `pnpm-workspace.yaml` with:
+
+```yaml
+minimumReleaseAge: 10080        # ignore releases younger than 7 days
+onlyBuiltDependencies: []       # allow install scripts one package at a time
+```
+
+Pin one-off tools to an exact version at least two weeks old, never `@latest`.
 
 Before writing the stack, verify each chosen library, framework or service
 against current docs with context7 (`ctx7`). The table above is a starting
 point from memory, and APIs, versions and pricing change.
 
-1. For each chosen layer, resolve the library: `npx ctx7@latest library <name> "<what to look up>"`.
-2. Fetch the docs: `npx ctx7@latest docs <libraryId> "<what to look up>"`. One query per concept.
+1. For each chosen layer, resolve the library: `pnpm dlx ctx7@0.8.2 library <name> "<what to look up>"`.
+2. Fetch the docs: `pnpm dlx ctx7@0.8.2 docs <libraryId> "<what to look up>"`. One query per concept.
 3. Check the version, breaking changes and any feature the schema or API depends on (auth, RLS, webhooks, cron).
 4. If a default no longer fits, swap it and note why.
-5. If ctx7 fails with a quota error, tell the user and suggest `npx ctx7@latest login` or `CONTEXT7_API_KEY`. Do not fall back silently to memory.
+5. If ctx7 fails with a quota error, tell the user and suggest `pnpm dlx ctx7@0.8.2 login` or `CONTEXT7_API_KEY` (from a secret manager, never pasted into the chat or committed). Do not fall back silently to memory.
 
 Write each choice with one line of why, and the doc version checked. One database. No microservices. The
 clone does not need the original's architecture, it needs the original's
